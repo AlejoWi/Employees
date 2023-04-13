@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "Employees.Web\Employees.Web.csproj", "{AA4B630B-BDDC-43EA-B8A1-572514B2795D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{D81D9B75-0745-41CF-B9B1-C7B5C8304838}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{C58592A7-3476-4CA9-A798-B609DBD6C92C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DA", "DA", "{C8EF8DEC-3D64-4DDC-8C56-78797DDF29E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{464D0C8A-EFF9-4172-AACA-659964FB3E28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA4B630B-BDDC-43EA-B8A1-572514B2795D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4B630B-BDDC-43EA-B8A1-572514B2795D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4B630B-BDDC-43EA-B8A1-572514B2795D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4B630B-BDDC-43EA-B8A1-572514B2795D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA4B630B-BDDC-43EA-B8A1-572514B2795D} = {D81D9B75-0745-41CF-B9B1-C7B5C8304838}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1545CE83-8E18-473A-983B-8D11367BFE52}
+	EndGlobalSection
+EndGlobal

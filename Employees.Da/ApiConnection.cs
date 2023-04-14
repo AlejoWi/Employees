@@ -12,16 +12,12 @@ namespace Employees.Da
 {
     public class ApiConnection
     {
-        private string _UrlApi;
-        private RestClient _Client;
-        private string _Methodemployees = "employees";
-        private string _Methodemployee = "employee/";
-        public ApiConnection()
-        {
-            _UrlApi = ConfigurationManager.AppSettings["ApiEmployee"];            
-        }
+        private static string _UrlApi = "http://dummy.restapiexample.com/api/v1/";
+        private static RestClient _Client;
+        private static string _Methodemployees = "employees";
+        private static string _Methodemployee = "employee/";
 
-        public string GetEmployee(string IdEmployee)
+        public static string GetEmployee(string IdEmployee)
         {
             try
             {
@@ -35,7 +31,7 @@ namespace Employees.Da
             }
         }
 
-        public string GetEmployees()
+        public static string GetEmployees()
         {
             try
             {                
@@ -50,7 +46,7 @@ namespace Employees.Da
             }
         }
 
-        private string ConsultApiInfo()
+        private static string ConsultApiInfo()
         {
             var RestReq = new RestRequest(Method.POST);
             RestReq.AddHeader("Content-Type", "application/json");

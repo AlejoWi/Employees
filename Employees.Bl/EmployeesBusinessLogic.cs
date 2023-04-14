@@ -1,5 +1,4 @@
-﻿using Employees.Bl.Entities;
-using Employees.Da;
+﻿using Employees.Da;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -9,52 +8,42 @@ using System.Threading.Tasks;
 
 namespace Employees.Bl
 {    
-    public class EmployeesBusinessLogic
-    {
-        private ApiConnection _Apiconnection;
-
-        public EmployeesBusinessLogic()
-        {
-            _Apiconnection = new ApiConnection();
-        }
-
-        public JObject GetEmployees()
-        {
-            string EmployeesString = _Apiconnection.GetEmployees();
+    public static class EmployeesBusinessLogic
+    {                
+        public static JArray GetEmployees()
+        {            
+            string EmployeesString = ApiConnection.GetEmployees();
             try
             {
-                JObject JObj = JObject.Parse(EmployeesString);                
-                return CalculateAnualSalary(JObj); ;
+                JObject JObj = CalculateAnualSalary(JObject.Parse(EmployeesString));                              
+                return (JArray)JObj["data"];
             }
             catch
             {
-                JObject JObj = new JObject();
-                JObj.Add("status", "failed");
-                JObj.Add("Error", EmployeesString);
+                JArray JObj = new JArray();                
 
                 return JObj;
             }                         
         }
 
-        public JObject GetEmployee(string IdEmployee)
-        {
-            string EmployeesString = _Apiconnection.GetEmployee(IdEmployee);
+        public static JArray GetEmployee(string IdEmployee)
+        {            
+            string EmployeesString = ApiConnection.GetEmployee(IdEmployee);
             try
             {
-                JObject JObj = JObject.Parse(EmployeesString);
-                return CalculateAnualSalarySingle(JObj);
+                JObject JObj = CalculateAnualSalarySingle(JObject.Parse(EmployeesString));
+                JArray JArr = new JArray();
+                JArr.Add((JObject)JObj["data"]);
+                return JArr;
             }
             catch
             {
-                JObject JObj = new JObject();
-                JObj.Add("status", "failed");
-                JObj.Add("Error", EmployeesString);
-
+                JArray JObj = new JArray();
                 return JObj;
             }
         }
 
-        private JObject CalculateAnualSalary(JObject JObj)
+        public static  JObject CalculateAnualSalary(JObject JObj)
         {
             var dataArray = (JArray)JObj["data"];
             foreach (var item in dataArray)
@@ -66,7 +55,7 @@ namespace Employees.Bl
             return JObj;
         }
 
-        private JObject CalculateAnualSalarySingle(JObject JObj)
+        public static JObject CalculateAnualSalarySingle(JObject JObj)
         {
             var dataObject = (JObject)JObj["data"];
             dataObject["Employee_anual_salary"] = Convert.ToInt32(dataObject["employee_salary"]) * 12;            

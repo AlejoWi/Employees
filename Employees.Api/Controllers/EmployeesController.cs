@@ -5,20 +5,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Employees.Api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Employees")]
     public class EmployeesController : BaseApiController
     {
         [Route("GetEmployees")]
         [HttpGet]
         public HttpResponseMessage GetEmployees()
-        {
-            EmployeesBusinessLogic bl = new EmployeesBusinessLogic();
+        {            
             try
             {
-                return this.Request.CreateResponse(HttpStatusCode.OK, bl.GetEmployees());
+                return this.Request.CreateResponse(HttpStatusCode.OK, EmployeesBusinessLogic.GetEmployees());
             }
             catch (Exception eException)
             {
@@ -33,11 +34,10 @@ namespace Employees.Api.Controllers
         [Route("GetEmployee")]
         [HttpGet]
         public HttpResponseMessage GetEmployee(string id)
-        {
-            EmployeesBusinessLogic bl = new EmployeesBusinessLogic();
+        {            
             try
             {
-                return this.Request.CreateResponse(HttpStatusCode.OK, bl.GetEmployee(id));
+                return this.Request.CreateResponse(HttpStatusCode.OK, EmployeesBusinessLogic.GetEmployee(id));
             }
             catch (Exception eException)
             {

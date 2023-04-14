@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>Employees Consult</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">ID Employee</label>
+      <input type="text" name="id" id="txtId" class="form-control" [(ngModel)]="employee.id">
+    </div>
+    <div class="col-md-2">
+      <br>
+      <button class="btn btn-success" type="button" (click)="OnSearchEmployee(employee)">Search</button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table id="dtEmployees" class="table table-striped" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Id Employee</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+            <th>Profile Image</th>
+            <th>Anual Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable">
+            <td>{{item.id}}</td>
+            <td>{{item.employee_name}}</td>
+            <td>{{item.employee_salary}}</td>
+            <td>{{item.employee_age}}</td>
+            <td>{{item.profile_image}}</td>
+            <td>{{item.Employee_anual_salary}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
